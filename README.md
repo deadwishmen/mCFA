@@ -1,6 +1,9 @@
-# Multi-Branch Network for Imagery Emotion Prediction (EMOTIC)
+# Attention Mechanisms for Context-Aware Emotion Recognition
 
 PyTorch implementation of a **Multi-Branch Deep Neural Network** for recognizing human emotions in natural context on the **EMOTIC** dataset (26 discrete emotion categories and 3 continuous VAD dimensions: *Valence, Arousal, Dominance*).
+
+**Paper:** [Add paper link here](<https://link.springer.com/article/10.1007/s42486-025-00216-w>)
+
 
 ## 1. Architecture Overview
 
@@ -53,14 +56,6 @@ Multi-Branch-Emotion-Prediction/
 ├── requirements.txt             # Python dependencies
 ├── .gitignore                   # Git ignore rules for weights, datasets, and cache files
 └── README.md                    # Project documentation
-```
-
-## 3. Installation
-
-```bash
-git clone https://github.com/<your-username>/Multi-Branch-Emotion-Prediction.git
-cd Multi-Branch-Emotion-Prediction
-pip install -r requirements.txt
 ```
 
 To download and convert the **Places365** pretrained weights for the Context Branch:
