@@ -77,6 +77,8 @@ data/emotic_obj_full/
 └── train_cont_arr.npy      └── val_cont_arr.npy      └── test_cont_arr.npy
 ```
 
+**Downloads:** [FER_trained_model.pt](<https://drive.google.com/drive/folders/1g7qkPDF7hYZC81jsRFrB7I27bCJq45gf?usp=sharing>) · [Preprocessed EMOTIC dataset](<https://drive.google.com/drive/folders/19wvE3ILQ4Xd1IpUCplSgRbcRNwtRyyg7?usp=drive_link>)
+
 ## 5. Usage
 
 ### 5.1. Train the Multi-Branch Network (`train.py`)

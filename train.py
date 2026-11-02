@@ -236,15 +236,27 @@ def main():
     model_body, num_body_features, is_swin = build_body_backbone(
         backbone_type=args.body_backbone,
         checkpoint_path=args.body_ckpt,
-        remove_head=True,
     )
+    # Cắt bỏ lớp phân loại cuối của nhánh Body để lấy vector đặc trưng
+    if is_swin and hasattr(model_body, "head"):
+      model_body.head = torch.nn.Identity()
+    elif hasattr(model_body, "fc"):
+      model_body = torch.nn.Sequential(*(list(model_body.children())[:-1]))
+
     spatial_ctx = args.fusion_type == "spatial_attention"
     model_context, num_context_features = build_context_backbone(
         arch=args.context_arch,
         state_dict_path=args.context_ckpt,
-        remove_head=True,
-        spatial_features=spatial_ctx,
     )
+    # Cắt bỏ lớp phân loại cuối của nhánh Context
+    if spatial_ctx:
+      model_context = torch.nn.Sequential(
+          *(list(model_context.children())[:-2])
+      )
+    else:
+      model_context = torch.nn.Sequential(
+          *(list(model_context.children())[:-1])
+      )
     model_face, num_face_features, is_bfer = build_face_backbone(
         backbone_type=args.face_backbone,
         checkpoint_path=args.face_ckpt,
